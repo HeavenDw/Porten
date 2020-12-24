@@ -1,0 +1,9 @@
+.slick-slider {
+	position: relative;
+}
+.slick-track {
+	@include flexbox();
+}
+.slick-list {
+	overflow: hidden;
+}
