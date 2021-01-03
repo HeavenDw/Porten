@@ -134,12 +134,12 @@ body {
 	}
 	// .top-header__link
 	&__link {
-		@include adaptive-value('font-size', 14, 12, 0);
+		font-size: 14px;
 		color: #969696;
 	}
 	// .top-header__tel
 	&__tel {
-		@include adaptive-value('font-size', 14, 12, 0);
+		font-size: 14px;
 		color: #969696;
 		@include anim(0.3s,0s);
 		span {
@@ -158,7 +158,7 @@ body {
 	}
 	// .top-header__login
 	&__login {
-		@include adaptive-value('font-size', 14, 12, 0);
+		font-size: 14px;
 		color: #969696;
 		@include anim(0.3s,0s);
 		position: relative;
@@ -213,7 +213,7 @@ body {
 		a {
 			display: block;
 			padding: 30px 20px;
-			@include adaptive-value('font-size', 14, 12, 1);
+			font-size: 14px;
 			color: #969696;
 			text-transform: uppercase;
 			@include anim(0.3s,0s);
@@ -327,7 +327,6 @@ body {
 			flex-direction: column;
 			li {
 				margin: 0px 0px 15px 0px;
-				text-decoration: underline;
 				&:last-child {
 					margin: 0;
 				}
@@ -336,6 +335,7 @@ body {
 		// .bottom-header__link
 		&__link {
 			a {
+				text-decoration: underline;
 				color: #fff;
 				padding: 0;
 			}
@@ -358,8 +358,6 @@ body {
 //<MAIN>====================================================================================================
 .main {
 	position: relative;
-	@include adaptive-value('padding-top', 277, 94, 1);
-	@include adaptive-value('padding-bottom', 160, 40, 1);
 	padding: 277px 0px 160px;
 	// .main__container
 	&__container {
@@ -379,7 +377,7 @@ body {
 	&__logo {
 		font-family: 'PostNoBillsJaffna';
 		color: #fff;
-		@include adaptive-value('font-size', 64, 50, 0);
+		font-size: 64px;
 		font-weight: 700;
 		border-bottom: 2px solid #fff;
 		margin: 0px 0px 10px 0px;
@@ -390,14 +388,14 @@ body {
 	}
 	// .main__city
 	&__city {
-		@include adaptive-value('font-size', 22, 18, 1);
+		font-size: 22px;
 		color: #fff;
 		text-transform: uppercase;
 	}
 	// .main__text
 	&__text {
 		max-width: 730px;
-		@include adaptive-value('font-size', 16, 14, 1);
+		font-size: 16px;
 		color: #fff;
 		line-height: 24px;
 		margin: 0px auto;
@@ -405,9 +403,30 @@ body {
 	// .main__bg
 	&__bg {}
 }
+@media (max-width:1023px){
+	.main {
+		padding: 197px 0px 80px;
+	}
+}
 @media (max-width:767px){
- 	.main__body {
-		margin: 0px 0px 40px 0px;
+	.main {
+		padding: 94px 0px 40px;
+		// .main__body
+		&__body {
+			margin: 0px 0px 40px 0px;
+		}
+		// .main__logo
+		&__logo {
+			font-size: 50px;
+		}
+		// .main__city
+		&__city {
+			font-size: 18px;
+		}
+		// .main__text
+		&__text {
+			font-size: 14px;
+		}
 	}
 }
 //</MAIN>====================================================================================================
@@ -416,7 +435,7 @@ body {
 .title {
 	font-family: 'Playfair Display';
 	font-weight: 700;
-	@include adaptive-value('font-size', 36 , 22, 0);
+	font-size: 36px;
 	padding: 0px 0px 45px 0px;
 	text-transform: uppercase;
 	position: relative;
@@ -430,6 +449,9 @@ body {
 		bottom: 0;
 		left: 50%;
 		@include tr(-50%,0px,0px);
+	}
+	@media (max-width:767px){
+		font-size: 22px;
 	}
 }
 
@@ -464,22 +486,20 @@ body {
 .season-new {
 	background-color: #000;
 	text-align: center;
-	@include adaptive-value('padding-top', 95, 40, 0);
-	@include adaptive-value('padding-bottom', 95, 40, 0);
-	@include adaptive-value('padding-left', 75, 20, 0);
-	@include adaptive-value('padding-right', 75, 20, 0);
+	padding: 95px 75px;
 	// .season-new__title
 	&__title {}
 	// .season-new__body
 	&__body {
-		@include adaptive-value('margin-top', 45, 30, 1);
+		margin: 45px 0px 0px 0px;
 	}
 	// .season-new__row
 	&__row {
+		flex-wrap: wrap;
 		@include flexbox();
 		align-items: center;
-		flex-wrap: wrap;
 		margin: 0px -25px;
+		justify-content: center;
 	}
 	// .season-new__col
 	&__col {
@@ -562,6 +582,14 @@ body {
 	}
 }
 @media (max-width:1023px){
+	.season-new {
+		padding: 60px 0px;
+		// .season-new__col
+		&__col {
+			flex: 0 1 50%;
+			padding: 0px 10px;
+		}
+	}
 	.new-collection {
 		flex-wrap: wrap;
 		// .new-collection__season
@@ -570,6 +598,16 @@ body {
 		}
 		// .new-collection__catalog
 		&__catalog {
+			flex: 1 1 100%;
+		}
+	}
+}
+
+@media (max-width:767px){
+	.season-new {
+		padding: 40px 0px;
+		// .season-new__col
+		&__col {
 			flex: 1 1 100%;
 		}
 	}
@@ -723,44 +761,26 @@ body {
 
 @media (max-width:1024px){
 	.brands {
-		// .brands__title
-		&__title {}
-		// .brands__row
-		&__row {}
 		// .brands__col
 		&__col {
 			flex: 0 1 33.333%;
 		}
-		// .brands__image
-		&__image {}
 	}
 }
 @media (max-width:768px){
 	.brands {
-		// .brands__title
-		&__title {}
-		// .brands__row
-		&__row {}
 		// .brands__col
 		&__col {
 			flex: 0 1 50%;
 		}
-		// .brands__image
-		&__image {}
 	}
 }
 @media (max-width:425px){
 	.brands {
-		// .brands__title
-		&__title {}
-		// .brands__row
-		&__row {}
 		// .brands__col
 		&__col {
 			flex: 1 1 100%;
 		}
-		// .brands__image
-		&__image {}
 	}
 }
 //</BRANDS>====================================================================================================
@@ -876,8 +896,12 @@ body {
 		opacity: 0.4;
 		padding: 15px;
 		input {
+			box-shadow: 0;
 			font-size: 14px;
 			color: gray;
+		}
+		input:required {
+		    box-shadow: none;
 		}
 	}
 	// .mailings-footer__btn
@@ -885,8 +909,6 @@ body {
 }
 @media (max-width:768px){
 	.footer {
-		// .footer__body
-		&__body {}
 		// .footer__row
 		&__row {
 			flex-wrap: wrap;
@@ -895,58 +917,11 @@ body {
 		&__col {
 			flex: 1 1 100%;
 		}
-		// .footer__shop
-		&__shop {}
-		// .footer__label
-		&__label {}
-		// .footer__text
-		&__text {}
-		// .footer__categories
-		&__categories {}
-		// .footer__btn
-		&__btn {}
-		// .footer__mailings
-		&__mailings {}
-		// .footer__bottom
-		&__bottom {}
-		// .footer__container
-		&__container {}
 	}
-	.shop-footer {
-		// .shop-footer__label
-		&__label {}
-		// .shop-footer__text
-		&__text {}
-	}
-	.categories-footer {
-		// .categories-footer__label
-		&__label {}
-		// .categories-footer__list
-		&__list {}
-		// .categories-footer__link
-		&__link {}
-		// .categories-footer__btn
-		&__btn {}
-	}
-	.mailings-footer {
-		// .mailings-footer__label
-		&__label {}
-		// .mailings-footer__text
-		&__text {}
-		// .mailings-footer__form
-		&__form {}
-		// .mailings-footer__input
-		&__input {}
-		// .mailings-footer__btn
-		&__btn {}
-	}
-
 }
 
 @media (max-width:374px){
 	.footer {
-		// .footer__body
-		&__body {}
 		// .footer__row
 		&__row {
 			flex-wrap: wrap;
@@ -955,54 +930,16 @@ body {
 		&__col {
 			flex: 1 1 100%;
 		}
-		// .footer__shop
-		&__shop {}
-		// .footer__label
-		&__label {}
-		// .footer__text
-		&__text {}
-		// .footer__categories
-		&__categories {}
-		// .footer__btn
-		&__btn {}
-		// .footer__mailings
-		&__mailings {}
-		// .footer__bottom
-		&__bottom {}
 		// .footer__container
 		&__container {
 			flex-direction: column;
 		}
 	}
-	.shop-footer {
-		// .shop-footer__label
-		&__label {}
-		// .shop-footer__text
-		&__text {}
-	}
-	.categories-footer {
-		// .categories-footer__label
-		&__label {}
-		// .categories-footer__list
-		&__list {}
-		// .categories-footer__link
-		&__link {}
-		// .categories-footer__btn
-		&__btn {}
-	}
 	.mailings-footer {
-		// .mailings-footer__label
-		&__label {}
-		// .mailings-footer__text
-		&__text {}
 		// .mailings-footer__form
 		&__form {
 			flex-direction: column;
 		}
-		// .mailings-footer__input
-		&__input {}
-		// .mailings-footer__btn
-		&__btn {}
 	}
 }
 
