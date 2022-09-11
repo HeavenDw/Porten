@@ -1,3 +1,3 @@
 # Porten
-One page website.
+Adaptive one page website.
 HTML5, SCSS, Jquery.
